@@ -4,27 +4,29 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-@Entity
+import br.com.trbalhoMvc.enumerador.EstadoPagamento;
+
+
 public class PagamentoComCartao extends Pagamento{
 	
 	private static final long serialversionUID = 1L;
-	@Id
-	@Column(unique=true)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private int numeroDeParcelas;
-	private boolean afirmacao;
+	
+
+	private Integer numeroDeParcelas;
 	
 		public PagamentoComCartao() {
 			// TODO Auto-generated constructor stub
 		}
 	
-	public PagamentoComCartao(int id, int numeroDeParcelas, boolean afirmacao) {
-		super();
-		this.id = id;
-		this.numeroDeParcelas = numeroDeParcelas;
-		this.afirmacao = afirmacao;
-	}
+	
+
+
+	public PagamentoComCartao(Integer id, EstadoPagamento estado, Pedido pedido, Integer numeroDeParcelas) {
+			super(id, estado, pedido);
+			this.numeroDeParcelas = numeroDeParcelas;
+			
+		}
+
 
 
 
@@ -34,15 +36,7 @@ public class PagamentoComCartao extends Pagamento{
 	public void setNumeroDeParcelas(int numeroDeParcelas) {
 		this.numeroDeParcelas = numeroDeParcelas;
 	}
-	public boolean isAfirmacao() {
-		return afirmacao;
-	}
-	public void setAfirmacao(boolean afirmacao) {
-		this.afirmacao = afirmacao;
-	}
-	
-	
-	
+
 	
 	
 }	

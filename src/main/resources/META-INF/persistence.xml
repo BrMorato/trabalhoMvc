@@ -4,34 +4,17 @@
                       http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
   version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence">
 
- <!-- <persistence-unit name="trabalhoMvc" transaction-type="RESOURCE_LOCAL">
+ <persistence-unit name="trabalhoMvc" transaction-type="RESOURCE_LOCAL">
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
       <property name="javax.persistence.jdbc.url"    value="jdbc:mysql://127.0.0.1:3308/trabalhomvc" />
       <property name="javax.persistence.jdbc.user" value="root" />
       <property name="javax.persistence.jdbc.password" value="brasil8" />
 
-      <property name="hibernate.dialect" value="MySQL8Dialect"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
       <property name="hibernate.hbm2ddl.auto" value="update" />
       </properties>
-  </persistence-unit> -->
+  </persistence-unit> 
   
-   <persistence-unit name="OleoApp" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
-      <!--   Aqui são listadas todas as entidades a serem persistidas -->
-        <class>br.com.trocacerta.web.Cliente</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
-        <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3308/aulajpa1"/>
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="brasil8" />
-            <!-- Configurações específicas do Hibernate -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-        </properties>
-    </persistence-unit>
 </persistence>
 

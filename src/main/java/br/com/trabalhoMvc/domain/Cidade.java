@@ -10,7 +10,7 @@ public class Cidade implements Serializable{
 	
 	private static final long serialversionUID = 1L;
 	@Id
-	@Column(unique=true)
+	//@Column(unique=true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
@@ -53,6 +53,30 @@ public class Cidade implements Serializable{
 
 	public void setEstadoCidade(Estado estadoCidade) {
 		this.estadoCidade = estadoCidade;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cidade other = (Cidade) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 
 

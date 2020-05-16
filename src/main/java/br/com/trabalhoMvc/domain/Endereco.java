@@ -4,11 +4,12 @@ import java.io.Serializable;
 
 
 import javax.persistence.*;
+
 @Entity
 public class Endereco implements Serializable {
 	
 	@Id
-	@Column(unique=true)
+//	@Column(unique=true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int numero;
@@ -17,12 +18,11 @@ public class Endereco implements Serializable {
 	private String complemento;
 	private String bairro;
 	
-	@OneToOne
-	@JoinColumn(name="cidadeEndereco")
-	private Cidade cidadeEndereco;
 	
-	@ManyToOne
-	private Cliente clienteEndereco;
+	private Cidade cidade;
+	
+
+	private Cliente cliente;
 	
 	public Endereco() {
 		// TODO Auto-generated constructor stub
@@ -30,7 +30,7 @@ public class Endereco implements Serializable {
 	
 	
 	public Endereco(int id, int numero, int cep, String logradouro, String complemento, String bairro,
-			Cidade cidadeEndereco) {
+			Cidade cidade, Cliente cliente) {
 		super();
 		this.id = id;
 		this.numero = numero;
@@ -38,7 +38,7 @@ public class Endereco implements Serializable {
 		this.logradouro = logradouro;
 		this.complemento = complemento;
 		this.bairro = bairro;
-		this.cidadeEndereco = cidadeEndereco;
+		this.cidade = cidade;
 	}
 
 	public int getId() {
@@ -79,13 +79,37 @@ public class Endereco implements Serializable {
 	}
 	
 	
-	public Cidade getCidadeEndereco() {
-		return cidadeEndereco;
+	public Cidade getCidade() {
+		return cidade;
 	}
 
 
-	public void setCidadeEndereco(Cidade cidadeEndereco) {
-		this.cidadeEndereco = cidadeEndereco;
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		if (id != other.id)
+			return false;
+		return true;
 	}
 
 

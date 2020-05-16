@@ -9,7 +9,7 @@ public class Telefone implements Serializable{
 	
 	private static final long serialversionUID = 1L;
 	@Id
-	@Column(unique=true)
+	//@Column(unique=true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int numero;
